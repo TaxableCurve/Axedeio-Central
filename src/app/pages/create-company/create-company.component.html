@@ -1,0 +1,87 @@
+<h2 class="content-block">Companies</h2>
+<div class="content-block">
+  <div class="dx-card responsive-paddings">
+    <form action="" (submit)="handleSubmit($event)">
+      <dx-form
+        [colCount]="2"
+        (onFieldDataChanged)="form_fieldDataChanged($event)"
+      >
+        <dxi-item dataField="name" [isRequired]="true">
+          <dxi-validation-rule type="required" message="Name is required!">
+          </dxi-validation-rule>
+        </dxi-item>
+        <dxi-item dataField="address" [isRequired]="true">
+          <dxi-validation-rule type="required" message="Address is required!">
+          </dxi-validation-rule>
+        </dxi-item>
+        <dxi-item dataField="telephone" [isRequired]="true">
+          <dxi-validation-rule
+            type="required"
+            message="Telephine is required!"
+          ></dxi-validation-rule>
+          <dxi-validation-rule
+            type="numeric"
+            message="Telephine must be a number!"
+          ></dxi-validation-rule>
+        </dxi-item>
+        <dxi-item dataField="mobile" [isRequired]="true">
+          <dxi-validation-rule
+            type="required"
+            message="Mobile is required!"
+          ></dxi-validation-rule>
+          <dxi-validation-rule
+            type="numeric"
+            message="Mobile must be a number!"
+          ></dxi-validation-rule>
+        </dxi-item>
+        <dxi-item dataField="e-mail" [isRequired]="true">
+          <dxi-validation-rule
+            type="required"
+            message="E-mail is required!"
+          ></dxi-validation-rule>
+          <dxi-validation-rule
+            type="email"
+            message="E-mail is invalid!"
+          ></dxi-validation-rule>
+        </dxi-item>
+        <dxi-item
+          dataField="contry"
+          [isRequired]="true"
+          [editorOptions]="countryOptions"
+        >
+          <dxi-validation-rule
+            type="required"
+            message="Country is required!"
+          ></dxi-validation-rule>
+        </dxi-item>
+        <dxi-item
+          dataField="state"
+          [isRequired]="true"
+          editorType="dxSelectBox"
+          [editorOptions]="stateOptions"
+        >
+          <dxi-validation-rule
+            type="required"
+            message="State is required!"
+          ></dxi-validation-rule>
+        </dxi-item>
+        <dxi-item
+          dataField="city"
+          [isRequired]="true"
+          editorType="dxSelectBox"
+          [editorOptions]="{ dataSource: cities, placeholder: 'Select a city...' }"
+        >
+          <dxi-validation-rule
+            type="required"
+            message="City is required!"
+          ></dxi-validation-rule>
+        </dxi-item>
+        <dxi-item
+          itemType="button"
+          [colSpan]="2"
+          [buttonOptions]="submitButtonOptions"
+        ></dxi-item>
+      </dx-form>
+    </form>
+  </div>
+</div>

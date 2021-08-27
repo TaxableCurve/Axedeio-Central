@@ -1,0 +1,22 @@
+<h2 class="content-block"><i class="fas fa-list-ul"></i> List Business</h2>
+<div class="content-block">
+  <div class="dx-card responsive-paddings">
+    <dx-data-grid
+      [dataSource]="listBusiness"
+      keyExpr="id"
+      [columnAutoWidth]="true"
+      (onRowUpdated)="updateRow($event)"
+      (onRowRemoved)="deleteRow($event)"
+    >
+      <dxi-column dataField="id" sortOrder="asc" [allowEditing]="false"></dxi-column>
+      <dxi-column dataField="name"></dxi-column>
+      <dxi-column dataField="company"></dxi-column>
+      <dxo-search-panel [visible]="true"></dxo-search-panel>
+      <dxo-editing
+        mode="popup"
+        [allowDeleting]="true"
+        [allowUpdating]="true"
+      ></dxo-editing>
+    </dx-data-grid>
+  </div>
+</div>

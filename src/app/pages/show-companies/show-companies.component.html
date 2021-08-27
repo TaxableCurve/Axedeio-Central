@@ -1,0 +1,34 @@
+<h2 class="content-block"><i class="fas fa-edit"></i> Show Companies</h2>
+<div class="content-block">
+  <div class="dx-card responsive-paddings">
+    <form (submit)="onSubmit($event)">
+      <dx-form [formData]="company" [colCount]="2" [readOnly]="!isFormEditable">
+        <dxi-item
+          dataField="CompaniesGUID"
+          editorType="dxTextBox"
+          [editorOptions]="{readOnly: true}"
+        ></dxi-item>
+        <dxi-item dataField="Name"></dxi-item>
+        <dxi-item dataField="Address"></dxi-item>
+        <dxi-item dataField="Telephone"></dxi-item>
+        <dxi-item dataField="Mobile"></dxi-item>
+        <dxi-item dataField="Email"></dxi-item>
+        <dxi-item dataField="DateCreated"></dxi-item>
+        <dxi-item dataField="City"></dxi-item>
+        <dxi-item dataField="State"></dxi-item>
+        <dxi-item dataField="Country"></dxi-item>
+        <dxi-item name="edit-enable">
+          <dxo-label text="Edit Enable"></dxo-label>
+          <div *dxTemplate>
+            <dx-check-box [(value)]="isFormEditable"></dx-check-box>
+          </div>
+        </dxi-item>
+        <dxi-item
+          itemType="button"
+          [visible]="isFormEditable"
+          [buttonOptions]="editButtonOptions"
+        ></dxi-item>
+      </dx-form>
+    </form>
+  </div>
+</div>
